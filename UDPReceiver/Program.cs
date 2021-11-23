@@ -44,7 +44,7 @@ namespace UDPReceiver
                     Console.WriteLine(recieved);
                     var result = await client.PostAsJsonAsync("https://wordcloudprocessorapi.azurewebsites.net/words", recieved); 
                     //use this line when we have the URI to use
-                    Console.WriteLine(result.Content);
+                    Console.WriteLine(result.StatusCode);
                 }
             }
             catch (Exception e)
