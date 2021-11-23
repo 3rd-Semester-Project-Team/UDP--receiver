@@ -42,9 +42,9 @@ namespace UDPReceiver
                 using (HttpClient client = new HttpClient())
                 {
                     Console.WriteLine(recieved);
-                    var result = await client.PostAsJsonAsync("https://wordcloudprocessorapi.azurewebsites.net/words", recieved); 
                     //use this line when we have the URI to use
-                    Console.WriteLine(result.StatusCode);
+                    var result = await client.PostAsJsonAsync("https://wordcloudprocessorapi.azurewebsites.net/words", recieved);
+                    Console.WriteLine(result.StatusCode); //debugging code
                 }
             }
             catch (Exception e)
