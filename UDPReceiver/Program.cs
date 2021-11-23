@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Net.Sockets;
 using System.Text;
 
@@ -34,14 +35,16 @@ namespace UDPReceiver
         }
 
 
-        public static void PostToAPI(string recieved)
+        public static async void PostToAPI(string recieved)
         {
             try
             {
                 using (HttpClient client = new HttpClient())
                 {
                     Console.WriteLine(recieved);
-                    //var result = client.PostAsJsonAsync("uri goes here", recieved); use this line when we have the URI to use
+                    var result = await client.PostAsJsonAsync("https://wordcloudprocessorapi.azurewebsites.net/words", recieved); 
+                    //use this line when we have the URI to use
+                    Console.WriteLine(result.Content);
                 }
             }
             catch (Exception e)
