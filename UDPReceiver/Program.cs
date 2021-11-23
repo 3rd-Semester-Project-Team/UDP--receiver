@@ -15,6 +15,9 @@ namespace UDPReceiver
             StartListener();
         }
 
+        /// <summary>
+        /// Starts to listen to UDP broadcasts and forwards received data to the Api method.
+        /// </summary>
         public static void StartListener()
         {
             using (UdpClient socket = new UdpClient())
@@ -28,13 +31,14 @@ namespace UDPReceiver
                     string recieved = Encoding.UTF8.GetString(data);
 
                     PostToAPI(recieved);
-
                 }
             }
-
         }
 
-
+        /// <summary>
+        /// Method to post data to and API by URL.
+        /// </summary>
+        /// <param name="recieved">Data to be posted.</param>
         public static async void PostToAPI(string recieved)
         {
             try
@@ -42,7 +46,6 @@ namespace UDPReceiver
                 using (HttpClient client = new HttpClient())
                 {
                     Console.WriteLine(recieved);
-                    //use this line when we have the URI to use
                     var result = await client.PostAsJsonAsync("https://wordcloudprocessorapi.azurewebsites.net/words", recieved);
                     Console.WriteLine(result.StatusCode); //debugging code
                 }
@@ -50,9 +53,7 @@ namespace UDPReceiver
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-
             }
-
         }
 
     }

@@ -5,4 +5,12 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\VSProjects\.3rdSemProject\UDP--receiver\UDP--receiver\UDPReceiver\UDPReceiver.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\VSProjects\.3rdSemProject\UDP--receiver\UDP--receiver\UDPReceiver\UDPReceiver.xml</DocumentationFile>
+  </PropertyGroup>
+
 </Project>
