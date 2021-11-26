@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UDPReceiver</name>
+    </assembly>
+    <members>
+        <member name="M:UDPReceiver.Program.StartListener">
+            <summary>
+            Starts to listen to UDP broadcasts and forwards received data to the Api method.
+            </summary>
+        </member>
+        <member name="M:UDPReceiver.Program.PostToAPI(System.String)">
+            <summary>
+            Method to post data to and API by URL.
+            </summary>
+            <param name="recieved">Data to be posted.</param>
+        </member>
+    </members>
+</doc>

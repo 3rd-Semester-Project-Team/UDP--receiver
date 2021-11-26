@@ -29,7 +29,7 @@ namespace UDPReceiver
                     IPEndPoint from = null;
                     byte[] data = socket.Receive(ref from);
                     string recieved = Encoding.UTF8.GetString(data);
-
+                    Console.WriteLine(recieved);
                     PostToAPI(recieved);
                 }
             }
@@ -45,9 +45,9 @@ namespace UDPReceiver
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    //use this line when we have the URI to use
-                    var result = await client.PostAsJsonAsync("https://wordcloudprocessorapi.azurewebsites.net/words", recieved);
-                    Console.WriteLine(result.StatusCode); //debugging code
+                    HttpContent content = new StringContent(recieved, Encoding.UTF8, "application/json");
+                    var result = await client.PostAsync("http://localhost:41911/api/Parkings", content);
+                    Console.WriteLine(result.StatusCode);
                 }
             }
             catch (Exception e)
