@@ -46,7 +46,7 @@ namespace UDPReceiver
                 using (HttpClient client = new HttpClient())
                 {
                     HttpContent content = new StringContent(recieved, Encoding.UTF8, "application/json");
-                    var result = await client.PostAsync("http://localhost:41911/api/Parkings", content);
+                    var result = await client.PostAsync("http://parkingsensor-api.azurewebsites.net/api/parkings/", content);
                     Console.WriteLine(result.StatusCode);
                 }
             }
